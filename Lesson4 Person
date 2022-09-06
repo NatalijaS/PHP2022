@@ -1,0 +1,21 @@
+
+
+/*
+Paredaguokite klasę Person, kad veiktų šis kodas:
+$person = new Person('John', 'Smith');
+echo $person; // "This person is called John Smith"
+*/
+
+class Person
+{
+    public string $name;
+
+    public function getName(): string
+    {
+        return "This person is called $this->name";
+    }
+}
+
+$person = new Person();
+$person->name = 'John Smith';
+echo $person->getName(); // "This person is called John Smith"
