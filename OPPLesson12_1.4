@@ -1,0 +1,30 @@
+<?php
+/*
+ * 1.4 - extra
+Pridėkite sesijos išvalymo mygtuką (HTML <form>, <button>, PHP $_POST, t.t.)
+ */
+session_start();
+if (isset($_POST['reset'])) {
+    session_destroy();
+    header('Location: index.php');
+}
+if (!isset($_SESSION['visit_counter'])) {
+    $_SESSION['visit_counter'] = 0;
+}else{
+    $_SESSION['visit_counter']++;
+
+}
+    $msg = "Jūs aplankėt šitą puslapį ".  $_SESSION['visit_counter']. " karta ";
+    $msg .= " šitoje sesijoje.";
+?>
+<html>
+<head>
+    <title>Setting up a PHP session</title>
+</head>
+<body>
+    <?php  echo ( $msg ); ?>
+    <form action="" method="post">
+        <button type="submit" name="reset">Reset</button>
+    </form>
+</body>
+</html>
